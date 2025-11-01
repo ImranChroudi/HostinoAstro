@@ -90,7 +90,7 @@ const articleSchema = {
   ogAlt={og_alt}
 >
 	<head>
-		<head>
+
   <!-- Basic Meta -->
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -118,7 +118,6 @@ const articleSchema = {
   <meta name="twitter:image" content={imageUrl} />
   <meta name="twitter:creator" content="@admin" />
 </head>
-	</head>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
   <main>
