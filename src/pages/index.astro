@@ -113,7 +113,13 @@ const articleSchema = {
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={imageUrl} />
   <meta name="twitter:creator" content="@admin" />
+
+  <!-- schema linked data -->
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
 </head>
+
+
 
 <Layout 
   title={title}
@@ -141,4 +147,3 @@ const articleSchema = {
   </main>
 </Layout>
 
-  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
