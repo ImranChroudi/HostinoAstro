@@ -18,7 +18,10 @@ export default defineConfig({
         external: ['node:path'],
     },
   },
-  integrations: [react(), compress(), sitemap()],
+  integrations: [react(), compress(), sitemap({
+    filter: (page) => page !== 'https://ma-6zt.pages.dev/secret-vip-lounge/',
+
+  })],
   adapter: cloudflare({
      imageService: 'cloudflare'
   }),
