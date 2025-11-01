@@ -3,7 +3,6 @@
 import { Image } from 'astro:assets';
 
 // Import the image (recommended for local images in Astro)
-import heroImage from '/images/01/hebergement-web-maroc.webp';
 import ConsultButton from '../ui/ConsultButton.astro';
 
 ---
@@ -36,7 +35,7 @@ import ConsultButton from '../ui/ConsultButton.astro';
     <div class="col-span-1 flex z-10 justify-center">
       <div class="relative w-full">
         <Image
-          src={heroImage}
+          src="/images/01/hebergement-web-maroc.webp"
           alt="Web Hosting in Morocco"
           width={1300}
           height={977}

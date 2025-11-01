@@ -2,8 +2,6 @@
 // src/components/Header.astro
 import { Image } from 'astro:assets';
 import AnimatedButton from '../ui/AnimatedButton.astro';
-import logo from '/images/01/logo-maroc.webp';
-import googleSvg from '/images/google-svg.svg';
 ---
 
 <header class="bg-white py-[20px] shadow-sm top-0 z-70">
@@ -12,7 +10,7 @@ import googleSvg from '/images/google-svg.svg';
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2">
         <Image
-          src={logo}
+          src='/images/01/logo-maroc.webp'
           alt="Hostino"
           width={234}
           height={39}
@@ -87,7 +85,7 @@ import googleSvg from '/images/google-svg.svg';
         <div class="relative dropdown-seo">
           <button class="flex items-center animated-link gap-2 text-title font-[600] hover:text-primary transition-colors">
             <Image
-              src={googleSvg}
+              src='/images/google-svg.svg'
               alt="Google"
               width={20}
               height={20}
