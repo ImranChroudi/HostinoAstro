@@ -13,15 +13,12 @@ import BenchmarkHostingMorocco from "../components/commonSections/BenchmarkHosti
 import PlansSection from "../components/commonSections/PlansSection.astro"
 import SixCards from '../components/commonSections/SixCards.astro';
 import FAQSection from '../components/commonSections/FAQSection.tsx';
-
-
 import Head from "./Head.astro";
 
 
 
 
 
-const {
 const title = "Hébergement Web Maroc - Hébergeur web 100% marocain";
 const description =
   "Hébergement Web Maroc. Hostino™️ Hébergeur recommandé par les développeurs, les agences web et les professionnels du numérique au Maroc";
@@ -29,7 +26,7 @@ const imageUrl =
   "https://www.hostino.ma/wp-content/uploads/2024/10/hebergement-web.png";
 const canonical_url = "https://www.hostino.ma/";
 const og_alt = "Hébergement Web Maroc";
-} = Astro.props;
+
 
 
 
@@ -92,44 +89,36 @@ const articleSchema = {
   ogImage={imageUrl}
   ogAlt={og_alt}
 >
-	<SEO
-      title: {
-    template: "%s | Hostino",
-    default: title,
-  },
-  description: description,
-  robots:
-    "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
-  alternates: {
-    canonical: canonical_url,
-  },
-  openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    url: canonical_url,
-    siteName: "Hostino",
-    title: title,
-    description: description,
-    images: [
-      {
-        url: imageUrl,
-        secureUrl: imageUrl,
-        width: 1200,
-        height: 630,
-        alt: og_alt,
-        type: "image/png",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    images: [imageUrl],
-    creator: "@admin",
-  },
-    />
+	<head>
+		<head>
+  <!-- Basic Meta -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+  <link rel="canonical" href={canonical_url} />
 
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:url" content={canonical_url} />
+  <meta property="og:site_name" content="Hostino" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={imageUrl} />
+  <meta property="og:image:secure_url" content={imageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={og_alt} />
+  <meta property="og:image:type" content="image/png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={imageUrl} />
+  <meta name="twitter:creator" content="@admin" />
+</head>
+	</head>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
   <main>
