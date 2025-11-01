@@ -1,0 +1,70 @@
+export const main_schema = [
+  {
+    "@type": "Place",
+    "@id": "https://www.hostino.ma/#place",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "35.77594947083067",
+      longitude: "-5.80348479866106",
+    },
+    hasMap:
+      "https://www.google.com/maps/search/?api=1&query=35.77594947083067,-5.80348479866106",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "T100 Technopark Tanger",
+      addressLocality: "Tanger",
+      addressRegion: "Tanger",
+      postalCode: "90000",
+      addressCountry: "Maroc",
+    },
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.hostino.ma/#organization",
+    name: "Hostino",
+    url: "https://www.hostino.ma",
+    email: "info@hostino.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "T100 Technopark Tanger",
+      addressLocality: "Tanger",
+      addressRegion: "Tanger",
+      postalCode: "90000",
+      addressCountry: "Maroc",
+    },
+    logo: {
+      "@type": "ImageObject",
+      "@id": "https://www.hostino.ma/#logo",
+      url: "https://www.hostino.ma/logo-icon-square.jpg",
+      contentUrl: "https://www.hostino.ma/logo-icon-square.jpg",
+      caption: "Hostino",
+      inLanguage: "fr-FR",
+      width: "1200",
+      height: "1200",
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+212531031186",
+        contactType: "customer support",
+      },
+    ],
+    location: { "@id": "https://www.hostino.ma/#place" },
+  },
+  {
+    "@type": "WebSite",
+    "@id": "https://www.hostino.ma/#website",
+    url: "https://www.hostino.ma",
+    name: "Hostino",
+    publisher: { "@id": "https://www.hostino.ma/#organization" },
+    inLanguage: "fr-FR",
+  },
+  {
+    "@type": "ImageObject",
+    "@id": "https://www.hostino.ma/wp-content/uploads/2025/06/google-svg.svg",
+    url: "https://www.hostino.ma/wp-content/uploads/2025/06/google-svg.svg",
+    width: "200",
+    height: "200",
+    inLanguage: "fr-FR",
+  },
+];

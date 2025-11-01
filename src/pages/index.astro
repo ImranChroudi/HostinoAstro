@@ -14,6 +14,7 @@ import PlansSection from "../components/commonSections/PlansSection.astro"
 import SixCards from '../components/commonSections/SixCards.astro';
 import FAQSection from '../components/commonSections/FAQSection.tsx';
 import Head from "./Head.astro";
+import { main_schema } from '../mainSchema.ts';
 
 
 
@@ -34,7 +35,7 @@ const og_alt = "Hébergement Web Maroc";
 const articleSchema = {
   "@context": "https://schema.org",
   "@graph": [
-  
+   ...main_schema,
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.hostino.ma/#breadcrumb",
