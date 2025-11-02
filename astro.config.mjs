@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 
 import tailwindcss from '@tailwindcss/vite';
-
+import compress from "astro-compress"
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
@@ -17,10 +17,7 @@ export default defineConfig({
         external: ['node:path'],
     },
   },
-  integrations: [react(), sitemap({
-    filter: (page) => page !== 'https://ma-6zt.pages.dev/secret-vip-lounge/',
-
-  })],
+  integrations: [react(), compress(), sitemap({})],
   adapter: cloudflare({
      imageService: 'cloudflare'
   }),
