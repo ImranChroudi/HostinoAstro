@@ -15,7 +15,7 @@ export const main_schema = [
       addressLocality: "Tanger",
       addressRegion: "Tanger",
       postalCode: "90000",
-      addressCountry: "Maroc",
+      addressCountry: "MA",
     },
   },
   {

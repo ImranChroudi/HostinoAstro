@@ -76,7 +76,7 @@ select {
 }
 
 .big-title {
-  @apply lg:text-[56px] md:text-[45px] text-[43px] leading-[50px] tracking-[-1.5px] lg:tracking-[-2.6px] md:leading-[52px] md:tracking-[-3px] lg:leading-[59px] font-[600] text-title;
+  @apply lg:text-[56px] md:text-[45px] text-[43px] leading-[49px] tracking-[-1.5px] lg:tracking-[-2.6px] md:leading-[52px] md:tracking-[-3px] lg:leading-[59px] font-[600] text-title;
 }
 
 .big-title.title-hero-section {
@@ -151,7 +151,7 @@ span {
 }
 
 .header {
-  @apply max-w-7xl mx-auto px-3 lg:px-7;
+  @apply max-w-7xl mx-auto px-[20px] lg:px-7;
 
 }
 
@@ -167,7 +167,7 @@ span {
 .title-section {
   letter-spacing: -2.5px;
   font-weight: 600;
-  @apply text-[35px] md:text-[44px] leading-[40px] md:tracking-[-2.5px] tracking-[-1.5px] md:leading-[50px] text-title mb-6;
+  @apply text-[35px] md:text-[44px] leading-[40px] md:tracking-[-2.5px] tracking-[-1.5px] md:leading-[50px] text-title mb-[30px];
 }
 
 .title-section-white {
