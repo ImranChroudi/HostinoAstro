@@ -13,6 +13,11 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ma-6zt.pages.dev/",
+  integrations: [react(), compress(), sitemap()],
+  adapter: cloudflare({ 
+    imageService: "cloudflare"
+  }),
+  compressHTML: true,
   output: "server",
   vite: {
     plugins: [tailwindcss()],
@@ -29,13 +34,6 @@ export default defineConfig({
         },
       },
       
-      rollupOptions: {
-        
-        output: {
-          // Fewer, larger chunks = less overhead
-          // Faster code generation
-          generatedCode: 'es2022'
-          } 
         } ,
 
         esbuild: {
@@ -45,18 +43,10 @@ export default defineConfig({
           minifySyntax: true,
           minifyWhitespace: true,
         },
-        
+        optimizeDeps: {
+          include: ["react", "react-dom"],
+        },
       }
+      
      
-    },
-    optimizeDeps: {
-      include: ["react", "react-dom"],
-    },
-  },
-
-  integrations: [react(), compress(), sitemap({})],
-  adapter: cloudflare({
-    imageService: "cloudflare",
-  }),
-  compressHTML: true,
 });
