@@ -110,6 +110,9 @@ export default function DomainSearchSection({ id }: { id: string }) {
           src="/images/01/nav-domaines.png"
           alt="Nav domaines"
           className="mx-auto md:w-[50%] sm:w-[80%] w-[100%]"
+          loading="eager"
+          width={1300}
+          height={900}
       
         />
       </div>
