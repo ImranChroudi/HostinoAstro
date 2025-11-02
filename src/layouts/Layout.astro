@@ -2,15 +2,15 @@
 import "../styles/global.css";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
-import { SEO } from "astro-seo";
-import Head from "./Head.astro";
 
 
 interface Props {
   title?: string;
   description?: string;
-  canonical?: string;
+  canonical_url?: string;
+  imageUrl?:string;
   ogImage?: string;
+  og_alt? :string;
   ogAlt?: string;
   articleSchema? : any
 }
@@ -18,9 +18,10 @@ interface Props {
 const {
   title,
   description ,
-  canonical ,
+  canonical_url ,
+  imageUrl,
   ogImage ,
-  ogAlt ,
+  og_alt ,
   articleSchema
 } = Astro.props;
 
@@ -29,10 +30,8 @@ const {
 <html lang="fr-MA">
     <head>
 	  	<link rel="icon" type="image/png" href="/favicon.png" />
-
-
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  		<meta charset="UTF-8">
+  		<meta charset="UTF-8" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
@@ -57,7 +56,6 @@ const {
   <meta name="twitter:image" content={imageUrl} />
   <meta name="twitter:creator" content="@admin" />
 
-   <!-- ✅ JSON-LD Schema (optional) -->
     {articleSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     )}
