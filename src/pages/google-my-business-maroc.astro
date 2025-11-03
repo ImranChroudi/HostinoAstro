@@ -190,33 +190,14 @@ const articleSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
-  <Fragment slot="head">
-    <meta
-      name="robots"
-      content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
-    />
-    <link rel="canonical" href={canonical_url} />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:url" content={canonical_url} />
-    <meta property="og:site_name" content="Hostino" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:secure_url" content={imageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={ogAlt} />
-    <meta property="og:image:type" content="image/png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={imageUrl} />
-    <meta name="twitter:creator" content="@admin" />
-    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  </Fragment>
-
+<Layout 
+  title={title}
+  description={description}
+  canonical_url={canonical_url}
+  imageUrl={imageUrl}
+  ogAlt={ogAlt}
+  articleSchema={articleSchema}
+>
   <main>
     <HeroSection
       subtitle="Google My Business Maroc"
