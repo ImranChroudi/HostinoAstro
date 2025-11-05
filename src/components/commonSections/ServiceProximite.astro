@@ -47,7 +47,7 @@ const moroccanCities = [
 
     <div class="flex flex-wrap gap-1">
       {moroccanCities.map((city) => {
-        const formattedCity = city.toUpperCase().replace(/\s+/g, "-");
+        const formattedCity = city.toLowerCase().replace(/\s+/g, "-");
         return (
           <a
             key={city}

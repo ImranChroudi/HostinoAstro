@@ -245,9 +245,9 @@ const montserratClassName = "font-montserrat";
                 Economisez {plan.save}
               </span>
             </div>
-            <p class="text-base text-title font-semibold mb-1">À seulement</p>
+            <p class="text-base text-title font-[600] mb-1">À seulement</p>
             <p
-              class={`${montserratClassName} text-[45px] font-bold leading-[54px] text-[#14213D]`}
+              class={`${montserratClassName} text-[45px] font-[600] leading-[54px] text-[#14213D]`}
             >
               {plan.price_discounted}
             </p>
@@ -258,7 +258,7 @@ const montserratClassName = "font-montserrat";
               plan.most_popular.is_most_popular
                 ? "bg-primary"
                 : "bg-title hover:bg-primary transition"
-            } text-white flex items-center mt-[18px] gap-3 justify-center font-bold py-[16px] rounded-[10px] text-center mb-4 transition`}
+            } text-white flex items-center mt-[18px] gap-3 justify-center font-[600] py-[16px] rounded-[10px] text-center mb-4 transition`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -268,7 +268,7 @@ const montserratClassName = "font-montserrat";
               viewBox="0 0 24 24"
               stroke-width={4}
               stroke="currentColor"
-              class="size-3 font-bold"
+              class="size-3 font-[600]"
             >
               <path
                 stroke-linecap="round"
@@ -279,7 +279,7 @@ const montserratClassName = "font-montserrat";
           </a>
 
           <p
-            class="text-sm text-title"
+            class="text-sm price_ttc text-title"
             set:html={plan.price_ttc}
           />
 
@@ -287,7 +287,7 @@ const montserratClassName = "font-montserrat";
 
           <!-- Star Rating -->
           <div class="flex items-center lg:justify-start justify-center gap-2 mb-6">
-            <span class="text-sm font-bold text-gray-700 mr-2">Performances</span>
+            <span class="text-sm font-[600] text-title mr-2">Performances</span>
             <div class="flex">
               {[...Array(5)].map((_, i) => (
                 <svg
@@ -305,7 +305,7 @@ const montserratClassName = "font-montserrat";
             </div>
           </div>
 
-          <ul class="text-gray-700 text-sm space-y-2 flex-grow">
+          <ul class="text-title text-sm space-y-2 flex-grow">
             <li class="flex items-center lg:justify-start justify-center">
               {plan.features.seo_optimized ? (
                 <>
