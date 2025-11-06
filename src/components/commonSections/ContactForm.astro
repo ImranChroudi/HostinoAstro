@@ -4,7 +4,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
 <div class="py-[80px] flex items-center justify-center bg-title p-4">
@@ -44,23 +43,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         />
       </div>
 
-      <!-- Turnstile Widget -->
-      <div class="flex justify-center mt-8">
-        <div 
-          class="cf-turnstile" 
-          data-sitekey={turnstileSiteKey}
-          data-theme="light"
-          data-size="normal"
-        ></div>
-      </div>
-
-      <div id="turnstile-error" class="text-red-400 text-sm mt-2 hidden">
-        Veuillez compléter la vérification de sécurité
-      </div>
-
       <button
         type="submit"
-        class="bg-primary hover:bg-primary/90 text-white rounded-[26px] sm:px-[150px] mt-8 sm:w-auto w-full font-[600] py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+        class="bg-primary hover:bg-primary/90 text-white rounded-[26px] sm:px-[150px] mt-12 sm:w-auto w-full font-[600] py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Envoyer
       </button>
@@ -80,27 +65,13 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   </div>
 </div>
 
-<!-- Load Turnstile Script -->
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
   const messageDiv = document.getElementById('form-message') as HTMLDivElement;
-  const turnstileError = document.getElementById('turnstile-error') as HTMLDivElement;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // Get Turnstile token
-    const turnstileResponse = (window as any).turnstile.getResponse();
-    
-    if (!turnstileResponse) {
-      turnstileError.classList.remove('hidden');
-      return;
-    }
-
-    turnstileError.classList.add('hidden');
 
     // Disable button and show loading state
     submitButton.disabled = true;
@@ -112,8 +83,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
       fullName: formData.get('fullName'),
       phone: formData.get('phone'),
       email: formData.get('email'),
-      page: window.location.href,
-      turnstileToken: turnstileResponse, // Add Turnstile token
+      page : window.location.href
     };
 
     try {
@@ -131,26 +101,17 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         messageDiv.className = 'mt-4 text-sm text-green-400';
         messageDiv.classList.remove('hidden');
         form.reset();
-        
-        // Reset Turnstile
-        (window as any).turnstile.reset();
       } else {
         // Error
         messageDiv.textContent = result.error || 'Erreur lors de l\'envoi de l\'email.';
         messageDiv.className = 'mt-4 text-sm text-red-400';
         messageDiv.classList.remove('hidden');
-        
-        // Reset Turnstile on error
-        (window as any).turnstile.reset();
       }
     } catch (error) {
       // Network error
       messageDiv.textContent = 'Erreur de connexion. Veuillez réessayer.';
       messageDiv.className = 'mt-4 text-sm text-red-400';
       messageDiv.classList.remove('hidden');
-      
-      // Reset Turnstile on error
-      (window as any).turnstile.reset();
     } finally {
       // Re-enable button
       submitButton.disabled = false;
