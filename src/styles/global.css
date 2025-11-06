@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
 
@@ -9,10 +11,7 @@
 @import '@fontsource/montserrat/600.css';
 @import '@fontsource/montserrat/700.css';
 
-@import "@fontsource/poppins/400.css";
-@import "@fontsource/poppins/500.css";
-@import "@fontsource/poppins/600.css";
-@import "@fontsource/poppins/700.css";
+
 
 
 :root {
@@ -39,6 +38,10 @@
   --row-gap: var(--gap);
 }
 
+body{
+  font-family: "Poppins" , sans-serif;
+}
+
 
 *{
   scroll-behavior: smooth;
@@ -60,7 +63,6 @@ body {
   width: 100%;
   height: 100%;
   tab-size : 4px;
-  font-family: "Poppins" , sans-serif;
 }
 
 
