@@ -8,7 +8,7 @@ import TrustedBySection from "../components/commonSections/TrustedBySection.astr
 import AnimatedButton from "../components/ui/AnimatedButton.astro";
 import ContactForm from "../components/commonSections/ContactForm.astro";
 import EmailCreationSteps from "../components/sectionsEmailProfessionnelPage/EmailCreationSteps.astro";
-import PlansEmail from "../components/sectionsEmailProfessionnelPage/PlansEmail.astro";
+import PlansEmail from "../components/sectionsEmailProfessionnelPage/PlansEmail.tsx";
 import ServiceProximite from "../components/commonSections/ServiceProximite.astro";
 import StartsRatingYellowFooter from "../components/ui/StartsRatingYellowFooter.astro";
 import { main_schema } from "../mainSchema.ts";
@@ -253,6 +253,7 @@ const articleSchema = {
       titleExiste={true}
       title="Choisissez votre plan email professionnel Maroc"
       id="plans"
+      client:load
     />
 
     <SixCards
