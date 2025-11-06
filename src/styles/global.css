@@ -2,11 +2,7 @@
 
 
 @import "tailwindcss";
-@import '@fontsource/poppins/300.css';
-@import '@fontsource/poppins/400.css';
-@import '@fontsource/poppins/500.css';
-@import '@fontsource/poppins/600.css';
-@import '@fontsource/poppins/700.css';
+
 
 @import '@fontsource/montserrat/300.css';
 @import '@fontsource/montserrat/400.css';
@@ -61,6 +57,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
+  tab-size : 4px
 }
 
 
@@ -607,5 +604,5 @@ li{
 
 
 .link_header{
-  font-size: 18px;
+  font-size: 17px;
 }

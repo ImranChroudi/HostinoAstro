@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
+import { AstroFont } from "astro-font";
 
 
 interface Props {
@@ -26,6 +27,44 @@ const {
 <!doctype html>
 <html lang="fr-MA">
     <head>
+    <AstroFont
+      config={[
+        {
+          name: "poppins",
+          src: [
+            {
+              style: 'bold',
+              weight: '700',
+              path: 'poppins-devanagari-600-italic.woff2'
+            },
+            {
+              style: 'semibold',
+              weight: '600',
+              path: 'poppins-600.woff2'
+            },
+            {
+              style: 'medium',
+              weight: '500',
+              path: 'poppins-devanagari-600-italic.woff2'
+            },
+            {
+              style: 'normal',
+              weight: '400',
+              path: 'poppins-devanagari-600-italic.woff2'
+            },
+             {
+              style: 'small',
+              weight: '300',
+              path: 'poppins-300.woff2'
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
 	  	<link rel="icon" type="image/ico" href="/favicon.ico" />
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   		<meta charset="UTF-8" />
