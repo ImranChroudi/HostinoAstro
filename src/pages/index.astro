@@ -3,7 +3,6 @@
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HomeSection/HeroSection.astro';
 import TrustedBySection from '../components/commonSections/TrustedBySection.astro';
-import WhatsHostingSection from '../components/HomeSection/WhatsHostingSection.astro';
 import FastestHostingSection from '../components/HomeSection/FastestHostingSection.astro';
 import DomainSearchSection from "../components/HomeSection/DomainSearchSection.tsx";
 import EasyHebergementSection from "../components/HomeSection/EasyHebergementSection.astro"
@@ -97,14 +96,11 @@ const articleSchema = {
   <main>
     <HeroSection consultButton={true}/>
 	  <PlansSection  />
-  	<TrustedBySection classNameImage="md:w-[80%] w-[100%] mx-auto h-auto brightness" />
-  	<WhatsHostingSection />
-	<DomainSearchSection id="ma" />
-	<WhyChooseSection />
+
+    <TrustedBySection classNameImage="md:w-[80%] w-[100%] mx-auto h-auto brightness" />
 
 
-
- <TextLeftImageRight
+    <TextLeftImageRight
       title="Hébergement web : qu'est-ce que c'est ?"
       paragraphs={[
         `L'hébergement web est un élément essentiel pour rendre votre
@@ -114,9 +110,9 @@ const articleSchema = {
         ` Le choix de votre hébergement est stratégique, car il impacte
             directement l'expérience utilisateur. Un hébergement performant
             garantit une navigation fluide, tandis qu'un hébergement
-            sécurisé protège vos données{" "}
+            sécurisé protège vos données 
             <b>
-              contre les{" "}
+              contre les 
               <a
                 href="https://about.google/intl/ALL_fr/stories/notin-interview/"
                 rel="noopener"
@@ -128,12 +124,15 @@ const articleSchema = {
           `Le service d'hébergement web, offert par des entreprises
             spécialisées appelées 'hébergeurs web', consiste à mettre
             l'infrastructure nécessaire pour rendre votre site accessible en
-            ligne.`
+            ligne.
+          `
       ]}
       imageSrc="/images/01/hebergement-web.jpg"
       imageAlt="What is Web Hosting?"
     />
 
+	  <DomainSearchSection id="ma" />
+	  <WhyChooseSection />
 
     <FastestHostingSection />
     <EasyHebergementSection />

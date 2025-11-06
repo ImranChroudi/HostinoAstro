@@ -12,7 +12,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ma-6zt.pages.dev/",
-  integrations: [react(), compress()],
+  integrations: [react(), compress() , sitemap()],
     adapter: cloudflare({ 
       imageService: "cloudflare"
     }),
