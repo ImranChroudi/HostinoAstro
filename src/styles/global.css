@@ -47,11 +47,16 @@
   }
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
+
 
 a,
 button,
@@ -316,7 +321,6 @@ span {
 .text-legal-documents h2 {
   @apply text-title text-[24px] font-[600]
 }
-
 
 .text-legal-documents ul {
   padding-left: 42px;
@@ -583,4 +587,62 @@ b , strong{
 
 li{
   list-style: none !important;
+}
+
+
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.burger-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: currentColor;
+  transition: all 0.3s ease;
+}
+
+.burger-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
 }

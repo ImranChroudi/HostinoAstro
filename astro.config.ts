@@ -13,10 +13,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://ma-6zt.pages.dev/",
   integrations: [react(), compress()],
-   
-  adapter: cloudflare({ 
-    imageService: "cloudflare"
-  }),
+    adapter: cloudflare({ 
+      imageService: "cloudflare"
+    }),
   compressHTML: true,
   output: "server",
   vite: {
