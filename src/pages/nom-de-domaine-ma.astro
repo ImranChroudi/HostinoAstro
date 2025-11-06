@@ -241,8 +241,8 @@ const articleSchema = {
 
     <section class="bg-gray-200 pb-[80px]">
       <div class="container flex flex-col items-center text-center justify-center">
-        <p class="mb-[20px] paragraph-white">
-          Un nom de domaine Maroc (.MA) indique que votre entreprise est <b>fièrement marocaine.</b>
+        <p class="mb-[20px] text-title">
+          Un nom de domaine Maroc (.MA) indique que votre entreprise est <b class="text-title">fièrement marocaine.</b>
         </p>
 
         <form class="lg:w-[60%] md:w-[90%] w-[100%] bg-gray-100">
@@ -370,22 +370,32 @@ const articleSchema = {
       title="Procédure d'enregistrement de noms avec termes réservés"
       paragraphs={[
         `<span style="color: #022545;">Pour finaliser l'enregistrement d'un nom de domaine Maroc contenant un terme réservé, merci de nous transmettre les informations suivants en ouvrant un <span style="text-decoration: underline;"><a style="color: #022545; text-decoration: underline;" href="https://my.hostino.com/submitticket.php" rel="noopener"><b>ticket de support</b></a></span> :</span>`,
-        `<ul class="list-disc flex mt-[30px] mb-[40px] flex-col gap-y-4 pl-[30px]">
-          <li>
-            <span>Nom de l'entreprise ou organisme pour lequel ce nom de domaine va être réservé</span>
-          </li>
-          <li>
-            <span>Email, adresse postale et N° de téléphone de l'entreprise</span>
-          </li>
-          <li>
-            <span>La raison pour laquelle ce domaine sera enregistré (avec tous les détails possibles pour convaincre l'ANRT de vous enregistrer ce domaine)</span>
-          </li>
-          <li>
-            <span>
-              <span><a style="text-decoration: underline; color: #022545;" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf">Formulaire</a></span> rempli, signé et cacheté, disponible sur via ce <a style="text-decoration: underline; color: #022545;" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf"><u>lien</u></a>.
-            </span>
-          </li>
-        </ul>`,
+        `<ul class="flex mt-[30px] mb-[40px] flex-col gap-y-4 pl-[30px]">
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2  bg-primary rounded-full flex-shrink-0"></span>
+    <span>Nom de l'entreprise ou organisme pour lequel ce nom de domaine va être réservé</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0"></span>
+    <span>Email, adresse postale et N° de téléphone de l'entreprise</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2  bg-primary rounded-full flex-shrink-0"></span>
+    <span>La raison pour laquelle ce domaine sera enregistré (avec tous les détails possibles pour convaincre l'ANRT de vous enregistrer ce domaine)</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2  bg-primary rounded-full flex-shrink-0"></span>
+    <span>
+      <a style="text-decoration: underline; color: #022545;" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf">Formulaire</a>
+      rempli, signé et cacheté, disponible via ce 
+      <a style="text-decoration: underline; color: #022545;" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf"><u>lien</u></a>.
+    </span>
+  </li>
+</ul>
+`,
       ]}
       imageSrc="/images/08/nom-de-domaine-anrt.jpg"
       imageAlt="Nom de domaine Maroc à Statut réservé"
@@ -450,22 +460,32 @@ const articleSchema = {
       title="Nom de domaine .ma gratuit"
       paragraphs={[
         `<span style="color: #022545;">Pour finaliser l'enregistrement d'un nom de domaine Maroc contenant un terme réservé, merci de nous transmettre les informations suivants en ouvrant un <span style="text-decoration: underline;"><a style="color: #022545; text-decoration: underline;" href="https://my.hostino.com/submitticket.php" rel="noopener"><b>ticket de support</b></a></span> :</span>`,
-        `<ul class="list-disc flex flex-col gap-y-4 mb-[40px] md:pl-[50px] pl-[30px]">
-          <li>
-            <span>Nom de l'entreprise ou organisme pour lequel ce nom de domaine va être réservé</span>
-          </li>
-          <li>
-            <span>Email, adresse postale et N° de téléphone de l'entreprise</span>
-          </li>
-          <li>
-            <span>La raison pour laquelle ce domaine sera enregistré (avec tous les détails possibles pour convaincre l'ANRT de vous enregistrer ce domaine)</span>
-          </li>
-          <li>
-            <span>
-              <span style="text-decoration: underline;"><a style="text-decoration: underline;" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf">Formulaire</a></span> rempli, signé et cacheté, disponible sur via ce <a href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf"><u>lien</u></a>.
-            </span>
-          </li>
-        </ul>`,
+        `<ul class="flex flex-col gap-y-4 mb-[40px] md:pl-[50px] pl-[30px]">
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0"></span>
+    <span>Nom de l'entreprise ou organisme pour lequel ce nom de domaine va être réservé</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0"></span>
+    <span>Email, adresse postale et N° de téléphone de l'entreprise</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0"></span>
+    <span>La raison pour laquelle ce domaine sera enregistré (avec tous les détails possibles pour convaincre l'ANRT de vous enregistrer ce domaine)</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <span class="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0"></span>
+    <span>
+      <a class="underline text-[#022545]" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf">Formulaire</a>
+      rempli, signé et cacheté, disponible via ce 
+      <a class="underline text-[#022545]" href="https://www.hostino.ma/Examen_Prealable_nom_de_domaine_maroc.pdf"><u>lien</u></a>.
+    </span>
+  </li>
+</ul>
+`,
       ]}
       buttonText="Commencer maintenant"
       arrowButton={true}

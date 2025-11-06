@@ -131,11 +131,11 @@ const {
             {plan.description}
           </p>
 
-          <div class="border-t-3 py-[15px] border-gray-200 my-4"></div>
+          <div class="border-t-3 my-[40px] border-gray-200"></div>
 
           {/* Pricing */}
           <div class="mb-6">
-            <p class="text-[45px] font-[600] leading-[54px] text-[#14213D]" style="font-family: 'Montserrat', sans-serif;">
+            <p class="text-[45px] font-[600] leading-[54px] text-title" style="font-family: 'Montserrat', sans-serif;">
               {plan.price}
             </p>
           </div>
@@ -147,12 +147,12 @@ const {
               bgColor={plan.is_most_popular ? "bg-primary" : "bg-title"}
               textColor="text-white"
               hoverBgColor={plan.is_most_popular ? "hover:bg-title" : ""}
-              className="text-white px-[40px] font-[600] py-[10px] rounded-[10px]"
+              class="text-white px-[40px] font-[600] py-[10px] rounded-[10px]"
               arrowButton={true}
             />
           </a>
 
-          <div class="border-t border-gray-200 my-4"></div>
+          <div class="border-t border-gray-200 my-[40px]"></div>
 
           <div>
             {plan.features.map((feature) => (

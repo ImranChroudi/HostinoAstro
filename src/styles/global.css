@@ -83,9 +83,15 @@ select {
   @apply lg:text-[56px] md:text-[45px] text-[43px] leading-[49px] tracking-[-1.5px] lg:tracking-[-2.6px] md:leading-[52px] md:tracking-[-3px] lg:leading-[64px] font-[600] text-title;
 }
 
-.big-title.title-hero-section {
-  @apply lg:text-[56px] md:text-[45px] text-[43px] leading-[50px] tracking-[-1.5px] lg:tracking-[-2.6px] md:leading-[52px] md:tracking-[-3px] sm:px-[0px] px-[30px] lg:leading-[59px] font-[600] text-title;
+.title-hero-section{
+  @apply lg:text-[63px] md:text-[45px] text-[43px] leading-[50px] tracking-[-1.5px] lg:tracking-[-2.6px] md:leading-[52px] md:tracking-[-3px] lg:leading-[70px] font-[600] text-title;
+
 }
+
+.list-paragraph{
+  @apply text-[17px] font-[300];
+}
+
 
 .max-big-title {
   @apply lg:text-[60px] md:text-[50px] text-[42px] leading-[50px] tracking-[-1.5px] lg:tracking-[-2.6px] md:leading-[52px] md:tracking-[-3px] lg:leading-[59px] font-[600] text-title;

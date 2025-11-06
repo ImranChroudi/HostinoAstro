@@ -65,7 +65,7 @@ const hostingFeatures = [
   {
     image: "03/hebergeur-marocain.jpg",
     alt: "Souveraineté numérique",
-    title: "Souveraineté <span>numérique</span>",
+    title: "Souveraineté </br><span>numérique</span>",
     description: `
       Nos serveurs Cloud sont hébergés dans un datacenter situé au Maroc,
       en conformité avec les exigences de souveraineté numérique, les obligations légales d'hébergement local,
@@ -75,7 +75,7 @@ const hostingFeatures = [
   {
     image: "03/adresse-ip-maroc.png",
     alt: "Adresse IP marocaine",
-    title: "Adresse <span>IP marocaine</span>",
+    title: "Adresse </br><span>IP marocaine</span>",
     description: `
       Notre solution de cloud souverain vous permet d'obtenir une adresse IP marocaine attribuée à un serveur hébergé
       dans un datacenter <b>situé sur le territoire marocain</b>, avec un temps de réponse très court
@@ -85,7 +85,7 @@ const hostingFeatures = [
   {
     image: "03/coonectivite-haut-debit.png",
     alt: "Connectivité Haut-Débit",
-    title: "Connectivité <span>Haut-Débit</span>",
+    title: "Connectivité </br><span>Haut-Débit</span>",
     description: `
       Grâce à nos partenariats avec les <b>opérateurs télécoms</b> locaux au Maroc,
       nous pouvons proposer une connexion Internet haut débit, avec une faible latence
@@ -95,7 +95,7 @@ const hostingFeatures = [
   {
     image: "03/services-manages.png",
     alt: "Services managés",
-    title: "Services <span>Managés</span>",
+    title: "Services </br><span>Managés</span>",
     description: `
       Avec nos solutions d'infogérance cloud souverain au Maroc, vous bénéficiez d'une équipe Ops de proximité,
       <b>experte en technologies Cloud et DevOps</b>, pour assurer la gestion opérationnelle
@@ -105,7 +105,7 @@ const hostingFeatures = [
   {
     image: "03/securite-monitoring.png",
     alt: "Monitoring et sécurité",
-    title: "Monitoring et <span>Sécurité</span>",
+    title: "Monitoring et </br><span>Sécurité</span>",
     description: `
       Notre service de sécurité cloud Maroc offre une protection complète contre les menaces internes et externes,
       assure une gestion rigoureuse des accès, renforce la gouvernance et la conformité des données,
@@ -115,7 +115,7 @@ const hostingFeatures = [
   {
     image: "03/conformite-anrt.png",
     alt: "Conformité réglementaire",
-    title: "Conformité <span>réglementaire</span>",
+    title: "Conformité </br><span>réglementaire</span>",
     description: `
       En optant pour un cloud souverain marocain, vous assurez l'hébergement et la gestion de vos données critiques
       en toute conformité avec la <b>loi 09-08</b> relative à la protection des données personnelles,
@@ -211,11 +211,23 @@ const articleSchema = {
 
     <PromoBanner
       icon="⚠️"
-      text='Nos offres Cloud Maroc sont destinées aux clients qui souhaitent que leurs données <b>soient hébergées sur le territoire marocain</b>. Si vous ne faites pas partie de cette catégorie, découvrez nos offres <span style="text-decoration: underline;"><a href="https://www.hostino.ma/">d'hébergement web</a></span> situées dans des <b>datacenters internationaux</b>.'
+      text=` Nos offres Cloud Maroc sont destinées aux clients qui souhaitent que leurs données <b>soient hébergées sur le territoire marocain</b>. Si vous ne faites pas partie de cette catégorie, découvrez nos offres <span style="text-decoration: underline;"><a href="https://www.hostino.ma/">d’hébergement web</a></span> situées dans des <b>datacenters internationaux</b>.`
       className="lg:w-[70%] lg:mb-[150px] mb-[60px]"
     />
 
-    
+     <TextLeftImageRight
+          title="Hébergez vos données sensibles au Maroc"
+          paragraphs={[
+            "Que vous soyez une entreprise du secteur financier, de la santé, de <b>l’administration publique</b>, ou toute organisation traitant des données sensibles ou soumise à des régulations strictes, choisir un serveur Cloud hébergé au Maroc vous offre une solution conforme aux réglementations locales et permet de réduire significativement les risques liés à la <b>souveraineté des données.</b>",
+            'Cette solution garantit que vos données restent sous la juridiction marocaine, tout en assurant une conformité totale avec la <span style="text-decoration: underline;"><a href="https://www.dgssi.gov.ma/fr/loi-09-08-relative-la-protection-des-personnes-physiques-legard-du-traitement-des" rel="noopener"><b>loi 09-08</b></a></span> relative à la protection des données personnelles, la <span style="text-decoration: underline;"><a href="https://www.dgssi.gov.ma/fr/loi-ndeg-0520-relative-la-cybersecurite" rel="noopener"><b>loi 05-20</b></a></span> sur la cybersécurité, ainsi qu’avec les recommandations de la CNDP.',
+            "Appelez le +212 531-031-186 et confiez l’hébergement de vos données sensibles à un prestataire de confiance basé au Maroc.",
+          ]}
+          imageSrc="/images/03/cloud-maroc.jpg"
+          imageAlt="Cloud au Maroc"
+          consultButtonTextExiste={false}
+          className="lg:mt-[150px] mt-[80px] mb-[70px]"
+        />
+
     <TrustedBySection
       classNameImage="md:w-[65%] w-[100%] mx-auto h-auto"
     />
@@ -243,7 +255,7 @@ const articleSchema = {
       </div>
     </div>
 
-    <PlansPack client:load />
+    <PlansPack />
 
     <TextLeftImageRight
       title="Qu'est-ce que le Cloud Maroc ?"
@@ -256,7 +268,7 @@ const articleSchema = {
       consultButtonTextExiste={false}
     />
 
-    <ServerVps client:load />
+    <ServerVps />
 
     <FAQSection faqData={faqData} title="FAQ - Cloud Maroc" />
     

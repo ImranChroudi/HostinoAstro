@@ -12,7 +12,9 @@ const {
 } = Astro.props;
 ---
 
-<div class="container">
+<section>
+
+  <div class="container">
   <div
     class={`w-[100%] lg:w-[75%] rounded-lg mx-auto border-2 border-dashed border-gray-300 px-[39px] py-[25px] `}
   >
@@ -21,9 +23,10 @@ const {
         <span role="img" aria-label="warning">
           {icon}
         </span>
-        <p class="paragraph-mb-0" set:html={text}></p>
+        <p class="paragraph-mb-0" set:html={text} />
       </div>
     </div>
   </div>
 </div>
+</section>
 
