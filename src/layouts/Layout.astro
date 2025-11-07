@@ -69,25 +69,6 @@ const crispId = import.meta.env.CRISP_WEBSITE_ID;
       <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     )}
 
-  <!-- Crisp Chat -->
-  <script is:inline define:vars={{ crispId }}>
-    window.$crisp=[];
-    window.CRISP_WEBSITE_ID=crispId;
-    window.CRISP_RUNTIME_CONFIG = {
-      lock_maximized: false,
-      lock_full_view: false,
-      cross_origin_cookies: false
-    };
-    (function(){
-      var d=document;
-      var s=d.createElement("script");
-      s.src="https://client.crisp.chat/l.js";
-      s.async=1;
-      s.setAttribute('crossorigin', 'anonymous');
-      d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-  </script>
-
    <script is:inline> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -112,5 +93,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<Header />
 		<slot />
     <Footer />
+
+     {crispId && (
+    <script is:inline define:vars={{ crispId }}>
+      if (typeof window.$crisp === 'undefined') {
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = crispId;
+        window.CRISP_RUNTIME_CONFIG = {
+          locale: 'fr',
+          lock_maximized: false,
+          lock_full_view: false,
+          cross_origin_cookies: false
+        };
+        
+        (function() {
+          var d = document;
+          var s = d.createElement("script");
+          s.src = "https://client.crisp.chat/l.js";
+          s.async = true;
+          s.setAttribute('crossorigin', 'anonymous');
+          
+          if (d.readyState === 'loading') {
+            d.addEventListener('DOMContentLoaded', function() {
+              d.getElementsByTagName("head")[0].appendChild(s);
+            });
+          } else {
+            d.getElementsByTagName("head")[0].appendChild(s);
+          }
+        })();
+      }
+    </script>
+  )}
 	</body>
 </html>
