@@ -3,7 +3,7 @@ import * as brevo from '@getbrevo/brevo';
 const apiInstance = new brevo.TransactionalEmailsApi();
 apiInstance.setApiKey(
   brevo.TransactionalEmailsApiApiKeys.apiKey,
-  "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"
+  import.meta.env.BREVO_API_KEY
 );
 
 export async function sendEmail({
@@ -11,8 +11,8 @@ export async function sendEmail({
   subject,
   htmlContent,
   textContent,
-  senderName = "Hostino",
-  senderEmail = "chroudiimran@gmail.com"
+  senderName = import.meta.env.BREVO_SENDER_NAME,
+  senderEmail = import.meta.env.BREVO_SENDER_EMAIL
 }: {
   to: string;
   subject: string;

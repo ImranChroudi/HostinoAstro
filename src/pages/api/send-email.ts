@@ -118,12 +118,12 @@ Date et heure: ${new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Casablan
     `;
 
     const result = await sendEmail({
-      to: "chroudiimran@gmail.com",
+      to: import.meta.env.BREVO_RECIPIENT_EMAIL,
       subject: `Hostino MA - Demande de rappel client - ${sanitizedFullName}`,
       htmlContent,
       textContent,
-      senderName: 'Hostino',
-      senderEmail: "chroudiimran@gmail.com",
+      senderName: import.meta.env.BREVO_SENDER_NAME,
+      senderEmail: import.meta.env.BREVO_SENDER_EMAIL,
     });
 
     if (result.success) {

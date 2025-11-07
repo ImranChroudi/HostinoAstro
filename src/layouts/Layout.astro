@@ -5,8 +5,6 @@ import Footer from "../components/layout/Footer.astro";
 import { AstroFont } from "astro-font";
 import Unfont from 'unplugin-fonts/astro/component.astro';
 
-
-
 interface Props {
   title?: string;
   description?: string;
@@ -25,6 +23,8 @@ const {
   articleSchema
 } = Astro.props;
 
+// Get Crisp ID from environment variable
+const crispId = import.meta.env.CRISP_WEBSITE_ID;
 ---
 <!doctype html>
 <html lang="fr-MA">
@@ -32,7 +32,10 @@ const {
         <Unfont />
 
         <link rel='dns-prefetch' href='//client.crisp.chat' />
+        <link rel='dns-prefetch' href='//client.relay.crisp.chat' />
         <link rel='dns-prefetch' href='//www.googletagmanager.com' />
+        <link rel='preconnect' href='https://client.crisp.chat' crossorigin />
+        <link rel='preconnect' href='https://client.relay.crisp.chat' crossorigin />
     
 	      	<link rel="icon" type="image/ico" href="/favicon.ico" />
 
@@ -66,21 +69,24 @@ const {
       <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     )}
 
-
-
-
   <!-- Crisp Chat -->
-    <script is:inline type="text/javascript">
-      window.$crisp=[];
-      window.CRISP_WEBSITE_ID=id;
-      (function(){
-        d=document;
-        s=d.createElement("script");
-        s.src="https://client.crisp.chat/l.js";
-        s.async=1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-      })();
-    </script>
+  <script is:inline define:vars={{ crispId }}>
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID=crispId;
+    window.CRISP_RUNTIME_CONFIG = {
+      lock_maximized: false,
+      lock_full_view: false,
+      cross_origin_cookies: false
+    };
+    (function(){
+      var d=document;
+      var s=d.createElement("script");
+      s.src="https://client.crisp.chat/l.js";
+      s.async=1;
+      s.setAttribute('crossorigin', 'anonymous');
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
 
    <script is:inline> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -108,4 +114,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <Footer />
 	</body>
 </html>
-
