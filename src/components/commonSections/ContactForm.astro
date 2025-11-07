@@ -45,7 +45,7 @@ const { title } = Astro.props;
 
       <button
         type="submit"
-        class="bg-primary hover:bg-primary/90 text-white rounded-[26px] sm:px-[150px] mt-12 sm:w-auto w-full font-[600] py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+        class="bg-primary hover:bg-primary/90 text-white rounded-[26px] sm:px-[150px] mt-12 sm:w-auto w-full font-[600] py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
       >
         Envoyer
       </button>
@@ -80,16 +80,19 @@ const { title } = Astro.props;
 
     const formData = new FormData(form);
     const data = {
-      fullName: formData.get('fullName'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      page : window.location.href
+      fullName: formData.get('fullName') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string,
+      page: window.location.href
     };
 
     try {
+      // Utilise une URL relative - fonctionnera sur n'importe quel domaine
       const response = await fetch('/api/send-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data),
       });
 
@@ -97,20 +100,26 @@ const { title } = Astro.props;
 
       if (response.ok) {
         // Success
-        messageDiv.textContent = 'Email envoyé avec succès ! Nous vous contacterons bientôt.';
-        messageDiv.className = 'mt-4 text-sm text-green-400';
+        messageDiv.textContent = '✅ Email envoyé avec succès ! Nous vous contacterons bientôt.';
+        messageDiv.className = 'mt-4 text-sm text-green-400 font-semibold';
         messageDiv.classList.remove('hidden');
         form.reset();
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          messageDiv.classList.add('hidden');
+        }, 5000);
       } else {
-        // Error
-        messageDiv.textContent = result.error || 'Erreur lors de l\'envoi de l\'email.';
-        messageDiv.className = 'mt-4 text-sm text-red-400';
+        // Error from server
+        messageDiv.textContent = `❌ ${result.error || 'Erreur lors de l\'envoi de l\'email.'}`;
+        messageDiv.className = 'mt-4 text-sm text-red-400 font-semibold';
         messageDiv.classList.remove('hidden');
       }
     } catch (error) {
       // Network error
-      messageDiv.textContent = 'Erreur de connexion. Veuillez réessayer.';
-      messageDiv.className = 'mt-4 text-sm text-red-400';
+      console.error('Erreur réseau:', error);
+      messageDiv.textContent = '❌ Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.';
+      messageDiv.className = 'mt-4 text-sm text-red-400 font-semibold';
       messageDiv.classList.remove('hidden');
     } finally {
       // Re-enable button
@@ -119,3 +128,21 @@ const { title } = Astro.props;
     }
   });
 </script>
+
+<style>
+  /* Animation pour les messages */
+  #form-message {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

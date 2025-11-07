@@ -1,16 +1,22 @@
-import type { APIRoute } from 'astro';
-import { sendEmail } from '../../src/lib/email';
+// functions/api/send-email.js
+// Place this file in: functions/api/send-email.js
 
-export const POST: APIRoute = async ({ request }) => {
+export async function onRequestPost(context : any) {
   try {
-    const body = await request.json();
+    const body = await context.request.json();
     const { fullName, phone, email, page } = body;
 
     // Validate required fields
     if (!fullName || !phone || !email) {
       return new Response(
         JSON.stringify({ error: 'Tous les champs sont requis' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        { 
+          status: 400, 
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          } 
+        }
       );
     }
 
@@ -19,7 +25,13 @@ export const POST: APIRoute = async ({ request }) => {
     if (!nameValidation.valid) {
       return new Response(
         JSON.stringify({ error: nameValidation.error }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        { 
+          status: 400, 
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          } 
+        }
       );
     }
 
@@ -28,7 +40,13 @@ export const POST: APIRoute = async ({ request }) => {
     if (!phoneValidation.valid) {
       return new Response(
         JSON.stringify({ error: phoneValidation.error }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        { 
+          status: 400, 
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          } 
+        }
       );
     }
 
@@ -37,7 +55,13 @@ export const POST: APIRoute = async ({ request }) => {
     if (!emailValidation.valid) {
       return new Response(
         JSON.stringify({ error: emailValidation.error }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        { 
+          status: 400, 
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          } 
+        }
       );
     }
 
@@ -117,37 +141,86 @@ Date et heure: ${new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Casablan
 — Message automatique de votre site Hostino.ma
     `;
 
-    const result = await sendEmail({
-      to: import.meta.env.BREVO_RECIPIENT_EMAIL,
-      subject: `Hostino MA - Demande de rappel client - ${sanitizedFullName}`,
-      htmlContent,
-      textContent,
-      senderName: import.meta.env.BREVO_SENDER_NAME,
-      senderEmail: import.meta.env.BREVO_SENDER_EMAIL,
+    // Send email via Brevo API
+    const brevoResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'api-key': context.env.BREVO_API_KEY
+      },
+      body: JSON.stringify({
+        sender: {
+          name: context.env.BREVO_SENDER_NAME,
+          email: context.env.BREVO_SENDER_EMAIL
+        },
+        to: [
+          {
+            email: context.env.BREVO_RECIPIENT_EMAIL,
+            name: 'Hostino Team'
+          }
+        ],
+        subject: `Hostino MA - Demande de rappel client - ${sanitizedFullName}`,
+        htmlContent: htmlContent,
+        textContent: textContent
+      })
     });
 
-    if (result.success) {
+    if (brevoResponse.ok) {
       return new Response(
         JSON.stringify({ message: 'Email envoyé avec succès' }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
+        { 
+          status: 200, 
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          } 
+        }
       );
     } else {
+      const errorData = await brevoResponse.json();
+      console.error('Brevo API Error:', errorData);
       return new Response(
         JSON.stringify({ error: 'Échec de l\'envoi de l\'email' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
+        { 
+          status: 500, 
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          } 
+        }
       );
     }
   } catch (error) {
     console.error('Error in send-email API:', error);
     return new Response(
       JSON.stringify({ error: 'Erreur serveur' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      { 
+        status: 500, 
+        headers: { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        } 
+      }
     );
   }
-};
+}
+
+// Handle CORS preflight requests
+export async function onRequestOptions() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Max-Age': '86400',
+    }
+  });
+}
 
 // Strong name validation
-function validateName(name: string): { valid: boolean; error?: string } {
+function validateName(name: string) {
   // Trim whitespace
   const trimmedName = name.trim();
 
@@ -187,7 +260,7 @@ function validateName(name: string): { valid: boolean; error?: string } {
 }
 
 // Universal phone validation (accepts national and international formats)
-function validatePhone(phone: string): { valid: boolean; error?: string } {
+function validatePhone(phone: string) {
   // Remove all spaces, dashes, parentheses, and dots
   const cleanPhone = phone.replace(/[\s\-().\u00A0]/g, '');
 
@@ -206,7 +279,6 @@ function validatePhone(phone: string): { valid: boolean; error?: string } {
   const phoneDigits = cleanPhone.replace(/[()]/g, '');
 
   // Check minimum length (at least 7 digits for shortest valid numbers)
-  // E.g., some local numbers can be 7 digits
   const digitsOnly = phoneDigits.replace(/\+/g, '');
   if (digitsOnly.length < 7) {
     return { valid: false, error: 'Le numéro de téléphone est trop court (minimum 7 chiffres)' };
@@ -219,8 +291,6 @@ function validatePhone(phone: string): { valid: boolean; error?: string } {
 
   // If starts with +, validate international format
   if (phoneDigits.startsWith('+')) {
-    // International format: +[country code][number]
-    // Must have at least country code (1-3 digits) + number
     const internationalRegex = /^\+\d{1,3}\d{4,14}$/;
     if (!internationalRegex.test(phoneDigits)) {
       return { 
@@ -229,7 +299,6 @@ function validatePhone(phone: string): { valid: boolean; error?: string } {
       };
     }
   } else {
-    // National format: must start with 0 or digit
     const nationalRegex = /^\d{7,15}$/;
     if (!nationalRegex.test(phoneDigits)) {
       return { 
@@ -259,7 +328,7 @@ function validatePhone(phone: string): { valid: boolean; error?: string } {
 }
 
 // Strong email validation
-function validateEmail(email: string): { valid: boolean; error?: string } {
+function validateEmail(email: string) {
   // Trim whitespace
   const trimmedEmail = email.trim().toLowerCase();
 
@@ -347,7 +416,7 @@ function validateEmail(email: string): { valid: boolean; error?: string } {
 }
 
 // Sanitize input to prevent XSS attacks
-function sanitizeInput(input: string): string {
+function sanitizeInput(input: string) {
   return input
     .trim()
     .replace(/[<>]/g, '') // Remove < and >
