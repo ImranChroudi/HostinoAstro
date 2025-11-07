@@ -147,6 +147,10 @@ Date et heure: ${new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Casablan
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '86400',
         'api-key': context.env.BREVO_API_KEY
       },
       body: JSON.stringify({
