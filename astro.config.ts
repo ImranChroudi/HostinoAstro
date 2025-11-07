@@ -2,9 +2,7 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import Unfonts from 'unplugin-fonts/astro'
-
-// import cloudflare from "@astrojs/cloudflare";
-
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import compress from "astro-compress";
 import { EnumChangefreq } from "sitemap/dist/lib/types";
@@ -175,10 +173,10 @@ export default defineConfig({
       ],
     })
   ],
-  //  adapter: cloudflare({ 
-  //     imageService: "cloudflare",
+   adapter: cloudflare({ 
+      imageService: "cloudflare",
       
-  //  }),
+   }),
   compressHTML: true,
   output: "server",
   vite: {

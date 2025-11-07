@@ -96,8 +96,8 @@ const { title } = Astro.props;
         body: JSON.stringify(data),
       });
 
-      const result = await response;
-      console.log(re)
+      const result = await response.json();
+      console.log(result)
 
       if (response.ok) {
         // Success
