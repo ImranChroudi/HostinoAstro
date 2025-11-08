@@ -166,6 +166,12 @@ span {
   @apply text-[35px]  md:text-[44px] leading-[40px] md:tracking-[-2.5px] tracking-[-1.5px] md:leading-[50px] text-title mb-[10px];
 }
 
+.title-section-center{
+  letter-spacing: -2.5px;
+  font-weight: 600;
+  @apply text-[35px] px-[30px] sm:px-[0] md:text-[44px] leading-[40px] md:tracking-[-2.5px] tracking-[-1.5px] md:leading-[50px] text-title mb-[10px];
+}
+
 .title-section-white {
   letter-spacing: -2.5px;
   font-weight: 600;
