@@ -173,13 +173,17 @@ export default defineConfig({
       ],
     })
   ],
+
+  output: 'server',
    adapter: cloudflare({
     imageService: 'cloudflare',
     platformProxy: {
       enabled: true,
      
     },
-   }),
+    mode: 'directory'
+
+   } as any),
   compressHTML: true,
   
   vite: {
