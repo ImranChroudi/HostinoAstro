@@ -1,0 +1,2 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://client.crisp.chat https://client.relay.crisp.chat; connect-src 'self' https://client.crisp.chat https://client.relay.crisp.chat; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';

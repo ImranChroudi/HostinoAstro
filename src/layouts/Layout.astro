@@ -100,23 +100,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       window.$crisp = [];
       window.CRISP_WEBSITE_ID = crispId;
       
-      // Force polling transport (more reliable on Cloudflare)
+      // Force HTTP long-polling (bypasses WebSocket issues)
       window.CRISP_RUNTIME_CONFIG = {
         locale: 'fr',
         lock_maximized: false,
         lock_full_view: false,
-        cross_origin_cookies: false,
-        session_merge: true
+        cross_origin_cookies: false
       };
       
-      // Override socket transport to prefer polling
-      window.CRISP_READY_TRIGGER = function() {
-        if (window.$crisp && window.$crisp.push) {
-          window.$crisp.push(['config', 'socket:options', {
-            transports: ['polling', 'websocket']
-          }]);
-        }
-      };
+      // Disable WebSocket transport entirely
+      window.CRISP_TOKEN_ID = crispId;
       
       (function() {
         var d = document;
@@ -124,10 +117,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         s.src = "https://client.crisp.chat/l.js";
         s.async = true;
         s.setAttribute('crossorigin', 'anonymous');
+        
+        // Inject script after Crisp loads to force polling
+        s.onload = function() {
+          if (window.$crisp) {
+            // Force reconnection with polling only
+            window.$crisp.push(['safe', true]);
+          }
+        };
+        
         d.head.appendChild(s);
       })();
     }
   </script>
 )}
+
+
+  Connection: Upgrade
 	</body>
 </html>
