@@ -14,6 +14,7 @@
 
 
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -247,6 +248,11 @@ span {
 
 .font-[Montserrat] {
   font-family: 'Montserrat', sans-serif;
+}
+
+.numbers{
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .titles-whyChoose span {
