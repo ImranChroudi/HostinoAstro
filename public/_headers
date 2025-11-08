@@ -1,2 +1,12 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://client.crisp.chat https://client.relay.crisp.chat; connect-src 'self' https://client.crisp.chat https://client.relay.crisp.chat; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://client.crisp.chat https://client.relay.crisp.chat https://settings.crisp.chat https://game.crisp.chat https://storage.crisp.chat; style-src 'self' 'unsafe-inline' https://client.crisp.chat; connect-src 'self' https://client.crisp.chat https://client.relay.crisp.chat https://settings.crisp.chat https://storage.crisp.chat wss://client.relay.crisp.chat wss://stream.relay.crisp.chat; img-src 'self' data: https: blob:; font-src 'self' data: https://client.crisp.chat; frame-src https://client.crisp.chat https://game.crisp.chat; media-src 'self' https://client.crisp.chat https://storage.crisp.chat blob:; worker-src 'self' blob:;
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Headers spécifiques pour Crisp
+https://client.crisp.chat/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: *
