@@ -173,15 +173,19 @@ export default defineConfig({
       ],
     })
   ],
-   adapter: cloudflare({ 
-      imageService: "cloudflare",
+   adapter: cloudflare({
+    imageService: 'cloudflare',
+    platformProxy: {
+      enabled: true,
+     
+    },
    }),
   compressHTML: true,
   
   vite: {
     plugins: [tailwindcss()],
     ssr: {
-      external: ["node:path"],
+      external: ["node:buffer"],
     },
     build: {
       cssCodeSplit: true,
