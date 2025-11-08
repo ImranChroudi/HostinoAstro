@@ -71,7 +71,7 @@ export default function DomainSearchSection({ id }: { id: string }) {
           Achetez dès maintenant votre
           <a
             href="/nom-de-domaine-ma/"
-            className="underline"
+            className="underline mx-[4px]"
           >
             .ma domain name
           </a>
