@@ -95,34 +95,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <Footer />
 
      {crispId && (
-    <script is:inline define:vars={{ crispId }}>
-      if (typeof window.$crisp === 'undefined') {
-        window.$crisp = [];
-        window.CRISP_WEBSITE_ID = crispId;
-        window.CRISP_RUNTIME_CONFIG = {
-          locale: 'fr',
-          lock_maximized: false,
-          lock_full_view: false,
-          cross_origin_cookies: false
-        };
-        
-        (function() {
-          var d = document;
-          var s = d.createElement("script");
-          s.src = "https://client.crisp.chat/l.js";
-          s.async = true;
-          s.setAttribute('crossorigin', 'anonymous');
-          
-          if (d.readyState === 'loading') {
-            d.addEventListener('DOMContentLoaded', function() {
-              d.getElementsByTagName("head")[0].appendChild(s);
-            });
-          } else {
-            d.getElementsByTagName("head")[0].appendChild(s);
-          }
-        })();
-      }
-    </script>
-  )}
+  <script is:inline define:vars={{ crispId }}>
+    if (typeof window.$crisp === 'undefined') {
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = crispId;
+      
+      // Force polling transport (more reliable on Cloudflare)
+      window.CRISP_RUNTIME_CONFIG = {
+        locale: 'fr',
+        lock_maximized: false,
+        lock_full_view: false,
+        cross_origin_cookies: false,
+        session_merge: true
+      };
+      
+      // Override socket transport to prefer polling
+      window.CRISP_READY_TRIGGER = function() {
+        if (window.$crisp && window.$crisp.push) {
+          window.$crisp.push(['config', 'socket:options', {
+            transports: ['polling', 'websocket']
+          }]);
+        }
+      };
+      
+      (function() {
+        var d = document;
+        var s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = true;
+        s.setAttribute('crossorigin', 'anonymous');
+        d.head.appendChild(s);
+      })();
+    }
+  </script>
+)}
 	</body>
 </html>

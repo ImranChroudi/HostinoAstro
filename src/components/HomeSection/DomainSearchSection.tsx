@@ -68,13 +68,13 @@ export default function DomainSearchSection({ id }: { id: string }) {
           Enregistrer votre nom de domaine
         </h2>
         <p className="mb-8 paragraph-white ">
-          Achetez dès maintenant votre{" "}
+          Achetez dès maintenant votre
           <a
             href="/nom-de-domaine-ma/"
             className="underline"
           >
             .ma domain name
-          </a>{" "}
+          </a>
           à partir de 118 DH/an..
         </p>
 
