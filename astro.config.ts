@@ -176,6 +176,9 @@ export default defineConfig({
 
   output: 'server',
    adapter: cloudflare({
+    routes: {
+      strategy: 'auto',
+    },
     imageService: 'cloudflare',
     platformProxy: {
       enabled: true,
