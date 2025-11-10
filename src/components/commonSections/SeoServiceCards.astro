@@ -18,7 +18,7 @@ const seoServiceCardsData: SEOServiceCard[] = [
     paragraphs: [
       "Le digital est aujourd'hui un levier essentiel pour les professionnels de santé au Maroc. Notre agence SEO accompagne les <strong>médecins, cabinets médicaux, laboratoires</strong> et l'ensemble des acteurs du secteur de la santé afin de renforcer leur visibilité sur Google ainsi que dans les moteurs de recherche IA.",
       `<span style="color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; letter-spacing: inherit; text-align: inherit; text-transform: inherit;">Nous mettons en place des stratégies de référencement local et organique, conçues dans </span><b style="font-family: inherit; font-size: inherit; font-style: inherit; letter-spacing: inherit; text-align: inherit; text-transform: inherit;">les règles de l'art et en parfaite conformité avec les <u>régulations marocaines</u></b><span style="color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; letter-spacing: inherit; text-align: inherit; text-transform: inherit;">.&nbsp;</span>`,
-      "Imaginez l'impact d'avoir votre <strong>site web</strong> en première position sur des recherches comme « <strong>Gynécologue Rabat</strong> » ou « <strong>Cabinet dentaire Casablanca</strong> ». Ces mots-clés peuvent générer chaque mois des centaines de demandes de consultations et de rendez-vous.",
+      `Imaginez l'impact d'avoir votre <a href="/creation-site-web-maroc"><strong>site web</strong></a> en première position sur des recherches comme « <strong>Gynécologue Rabat</strong> » ou « <strong>Cabinet dentaire Casablanca</strong> ». Ces mots-clés peuvent générer chaque mois des centaines de demandes de consultations et de rendez-vous.`,
       "De plus, les usages évoluent rapidement. Demain, un patient posera directement sa question à ChatGPT : « <strong>Quel est le meilleur dentiste à Rabat ?</strong> » Notre mission est de faire en sorte que votre cabinet soit la réponse.",
     ],
     buttonText: "Plus d'informations",
@@ -137,7 +137,7 @@ const seoServiceCardsData: SEOServiceCard[] = [
   },
 ];
 
-const {ville = "sdsd"} = Astro.props;
+const {ville = "sdsd" , seoServiceCardsDataImporter = seoServiceCardsData} = Astro.props;
 ---
 
 <section class="lg:my-[150px] my-[80px]">

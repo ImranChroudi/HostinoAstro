@@ -1,62 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import StartsRatingYellowFooter from "../components/ui/StartsRatingYellowFooter.astro";
-import { main_schema } from "../mainSchema";
 
-const title = "Modalités de paiement - Hostino";
-const description ="Plusieurs moyens de paiement mis à votre disposition, Transfert d'argent ou Virement bancaire, Carte Bancaire ..."
+const title = "Modalités de paiement Hostino | Toutes nos options";
+const description =
+  "Découvrez toutes les modalités de paiement Hostino : virement bancaire, carte bancaire, espèces et chèque. Trouvez l’option qui vous convient pour régler vos services en toute sécurité.";
+const canonical_url = "https://www.hostino.ma/paiements";
 const imageUrl =
-  "https://www.hostino.ma/wp-content/uploads/2024/10/hebergement-web.png";
-const canonical_url = "https://www.hostino.ma/mentions-legales";
-const ogAlt = "Modalités de paiement - Hostino";
-
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    ...main_schema,
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.hostino.ma/#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: "1",
-          item: {
-            "@id": "https://www.hostino.ma",
-            name: "Hostino - Noms de domaine et hébergement web au Maroc",
-          },
-        },
-        {
-          "@type": "ListItem",
-          position: "2",
-          item: {
-            "@id": canonical_url,
-            name: ogAlt,
-          },
-        },
-      ],
-    },
-    {
-      "@type": "Product",
-      name: title,
-      url: canonical_url,
-      description: description,
-      brand: { "@type": "Brand", name: "Hostino" },
-      offers: {
-        "@type": "AggregateOffer",
-        url: canonical_url,
-        lowPrice: "118",
-        priceCurrency: "MAD",
-        availability: "InStock",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "920",
-      },
-    },
-  ],
-};
+  "https://www.hostino.ma/images/meta/hostino-mode-paiement.png";
+const ogAlt = "Modalités de paiement Hostino";
 ---
 
 <Layout
@@ -65,153 +16,102 @@ const articleSchema = {
   canonical_url={canonical_url}
   imageUrl={imageUrl}
   ogAlt={ogAlt}
-  articleSchema={articleSchema}
 >
-  <main>
-    <section class="lg:py-[110px] bg-gray-100 py-[50px]">
+    <section class="lg:py-[110px] bg-gray-100 py-[80px]">
       <div class="container">
-        <h1 class="big-title">
-Modalités de paiement
-</h1>
+        <h1 class="big-title">Modalités de<br class="md:block hidden" /> paiement</h1>
       </div>
     </section>
 
-    <section class="lg:my-[120px] my-[80px]">
-      <div class="container">
-        <div class="grid md:grid-cols-12 grid-cols-1 gap-8">
-          {/* Sidebar */}
-          <div class="border-1 max-h-max lg:col-span-3 md:col-span-5 col-span-1 rounded-[10px] py-[30px] px-[30px] border-gray-300">
-            <h3 class="text-[22px] font-[600] text-title mb-[20px]">
-              Documents légaux
+    <section class="lg:my-[150px] bg-white my-[80px]">
+      <div class="container px-[30px]">
+        <div class="px-[30px]">
+            <h3 class="text-[27px] font-semibold text-title">
+                Transfert d’argent ou Virement bancaire
             </h3>
-            <div class="w-full h-[1px] bg-gray-400 mb-[20px]"></div>
+            <p class="paragraph">
+              Virement bancaire ou transfert d’argent sans frais additionnels (versement en espèces) dans n’importe quelle <a href="https://bpnet.gbp.ma/Public/CustomerService/Agence" rel="noopener">agence de la <u>Banque Populaire</u>.</a>.
+            </p>
 
-            <ul class="space-y-3">
-              <li style="text-decoration: underline;">
-                <a  href="/conditions-generales"> Conditions générales </a>
-              </li>
-              <li style="text-decoration: underline; text-decoration-thickness: 2px;">
-                <a class="active" href="/mentions-legales"> Mentions légales </a>
-              </li>
-              <li style="text-decoration: underline;">
-                <a href="/politique-cookies">Politique Cookies</a>
-              </li>
-              <li style="text-decoration: underline;">
-                <a href="/politique-de-confidentialite">
-                  Politique de confidentialité
-                </a>
-              </li>
-              <li style="text-decoration: underline;">
-                <a href="/abus">Politique anti-bus</a>
-              </li>
+            <ul class="my-[30px]">
+              <li class="paragraph-mb-0">– N° de compte (RIB) :  <b>164 640 21211 52330320002 28</b></li>
+               <li class="paragraph-mb-0">– N° de compte (IBAN) : <b>MA64 164 640 21211 52330320002 28</b></li>
+              <li class="paragraph-mb-0">– Bénéficiaire :  <b>Hostino SARL</b></li>
             </ul>
-          </div>
 
-          {/* Content */}
+            <p class="paragraph">
+              Il est obligatoire d’inscrire le&nbsp;numéro de facture sur le justificatif de paiement&nbsp;et nous l’envoyer <span style="text-decoration: underline;"><a href="https://my.hostino.com/submitticket.php" rel="noopener"><b>par ticket</b></a></span> à notre service de facturation.
+            </p>
 
-          <div class="lg:col-span-9 md:col-span-7 col-span-1 text-legal-documents">
-            <div>
-              <p>
-                Dans cet espace, l'utilisateur peut consulter toutes les
-                informations relatives aux mentions légales encadrant
-                l'utilisation du site Hostino.
-              </p>
-
-              <p>
-                Il est essentiel, en tant qu'utilisateur, de prendre
-                connaissance de ces mentions avant de poursuivre la navigation.
-              </p>
-
-              <h3>Hostino SARL AU</h3>
-
-              <div class="grid sm:grid-cols-2 grid-cols-1 gap-y-[15px]">
-                <div class="col-span-1">
-                  <h2>Adresse du siège</h2>
-                  <p>T100 Technopark, Tanger</p>
-                </div>
-                <div class="col-span-1">
-                  <h2>Directeur général</h2>
-                  <p>Aniss KIASSI</p>
-                </div>
-              </div>
-
-              <div class="grid sm:grid-cols-2 grid-cols-1 gap-y-[15px]">
-                <div class="col-span-1">
-                  <p style="margin-bottom: 0 !important;">
-                    <strong>E-mail</strong>
-                    <br />
-                    <a style="text-decoration: underline;" href="mailto:info@hostino.com">
-                      info@hostino.com
-                    </a>
-                  </p>
-                </div>
-
-                <div class="col-span-1">
-                  <p style="margin-bottom: 0 !important;">
-                    <strong>Site web</strong>
-                    <br />
-                    <a style="text-decoration: underline;" href="https://www.hostino.ma">
-                      www.hostino.ma
-                    </a>
-                  </p>
-                </div>
-              </div>
-
-              <div class="my-[27px] h-[2px] bg-gray-300"></div>
-
-              <div class="grid md:grid-cols-5 sm:grid-cols-2 grid-col-1 gap-4">
-                <p class="col-span-1">
-                  <strong>R.C</strong>
-                  <br />
-                  123893
-                </p>
-                <p class="col-span-1">
-                  <strong>Patente</strong>
-                  <br />
-                  50412781
-                </p>
-                <p class="col-span-1">
-                  <strong>I.F</strong>
-                  <br />
-                  51707097
-                </p>
-                <p class="col-span-1">
-                  <strong>R.I.B</strong>
-                  <br />
-                  164 640 21211 52330320002 28
-                </p>
-                <p class="col-span-1">
-                  <strong>ICE</strong>
-                  <br />
-                  002984236000036
-                </p>
-              </div>
-
-              <div class="my-[27px] h-[2px] bg-gray-300"></div>
-
-              <div class="mb-[27px]">
-                <span class="text-[13px] text-title">
-                  Toutes les informations sur ce site Internet sont en
-                  conformité avec la loi Marocaine et internationale.
-                </span>
-              </div>
-
-              <h3 class="mb-[27px]">Coordonnées</h3>
-
-              <ul>
-                <li>
-                  E-mail : <a href="mailto:info@hostino.com">info@hostino.com</a>
-                </li>
-                <li>
-                  Site web : <a href="https://www.hostino.ma"> https://www.hostino.ma </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+            <p class="my-[25px] paragraph"><b>Délais de validation du paiement:</b><p>
+            <p class="paragraph">– Dépôt à la banque en espèces : 24 heures en moyenne suivant votre opération de versement (hors jours fériés et week-end).</p>
+            <p class="paragraph">– Virement bancaire compte à compte : 48 heures en moyenne après l’opération de virement (hors jours fériés et week-end).</p>
         </div>
+
+
+        <div class="w-full">
+            <p class="text-[27px] text-title mb-[20px] font-semibold">Carte Bancaire</p>
+            <img
+                src="/images/cmi-maroc.png"
+                alt="cmi maroc"
+                loading="eager"
+                class="w-[250px] mb-[25px] h-[50px] brightness"
+             />
+
+
+             <p class="paragraph">
+                Les transactions sont sécurisées par le Centre Monétique Interbancaire.<br />
+                 Les commandes doivent être payées depuis la rubrique <b>“Mes Factures”</b> de votre espace client.
+             </p>
+
+             <p class="paragraph">
+                    Il n’est pas obligatoire d’envoyer le reçu de paiement par ticket.
+             </p>
+             <p class="paragraph><b>Délais de validation du paiement:</b></p>
+             <p class="paragraph>Vos services seront activés ou renouvelés instantanément si la transaction se termine sans erreur, et le service concerné ne nécessite aucune validation préalable.</p>
+
+              <p class="text-[27px] mb-[25px] text-title font-semibold">Espèces</p>
+              <p class="paragraph">Nous acceptons le paiement par espèces dans l’un de nos bureaux.</p>
+
+              <div class="my-[25px]">
+                <p class="paragraph>
+                    <b>Hostino SARL AU<br></b>T100 Technopark.<br>Tanger, Maroc
+                </p>
+              </div>
+              <p class="text-[17px] text-title"><b>Délai de validation:</b> Votre paiement sera validé à la réception de votre paiement.</p>
+
+        </div>
+
+        <div>
+<h3 class="text-[27px] text-title font-semibold">Chèque</h3>
+
+<p class="text-[17px] text-title my-[25px] ">
+  À envoyer par le <strong>Service AMANA</strong> de la Poste du Maroc ou à déposer directement 
+  à l’un de nos bureaux à l’adresse :
+</p>
+
+<p class="text-[17px] text-title my-[25px] ">
+  <strong>Hostino SARL AU</strong><br>
+  T100 Technopark.<br>
+  Tanger, Maroc
+</p>
+
+<p class="text-[17px] text-title my-[25px] ">
+  Prière de noter sur le dos du chèque le <strong>numéro de facture</strong> 
+  et votre <strong>adresse email</strong>.
+</p>
+
+<p class="text-[17px] text-title my-[25px] ">
+<strong>Délai de validation du paiement :</strong></p>
+
+<p>
+  Après l’encaissement effectif de votre chèque sur notre compte bancaire, 
+  soit environ <strong>5 jours ouvrables</strong> (hors jours fériés et week-end) 
+  après le dépôt du chèque à notre agence bancaire.
+</p>
+        </div>
+        
       </div>
     </section>
-    
-  </main>
-</Layout>
 
+</Layout>

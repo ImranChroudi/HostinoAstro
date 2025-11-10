@@ -126,7 +126,7 @@ const secondHalf = usedFaqData.slice(Math.ceil(usedFaqData.length / 2));
               data-faq-button={index}
               aria-expanded="false"
             >
-              <span class="text-[18px] font-semibold text-title pr-4 transition-colors duration-300">
+              <span class="text-[16px] font-semibold text-title pr-4 transition-colors duration-300">
                 {item.question}
               </span>
               <svg
@@ -156,7 +156,7 @@ const secondHalf = usedFaqData.slice(Math.ceil(usedFaqData.length / 2));
                     return <p set:html={answer}></p>;
                   } else if (Array.isArray(answer)) {
                     return answer.map((phrase: string, idx: number) => (
-                      <p key={idx} class="paragraph" set:html={phrase}></p>
+                      <p key={idx} class="paragraph-16" set:html={phrase}></p>
                     ));
                   } else {
                     return <Fragment>{answer}</Fragment>;
@@ -178,7 +178,7 @@ const secondHalf = usedFaqData.slice(Math.ceil(usedFaqData.length / 2));
                 data-faq-button={adjustedIndex}
                 aria-expanded="false"
               >
-                <span class="text-[18px] font-semibold text-title pr-4 transition-colors duration-300">
+                <span class="text-[16px] font-semibold text-title pr-4 transition-colors duration-300">
                   {item.question}
                 </span>
                 <svg
